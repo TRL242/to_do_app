@@ -23,7 +23,7 @@ def todos(request):
 def todo(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
 
-    change_status = request.GET.get('change status', '')
+    change_status = request.GET.get('change_status', '')
 
     if change_status:
         todo.is_done = True
