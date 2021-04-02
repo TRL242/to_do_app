@@ -27,6 +27,8 @@
     <div class="column is-12">
         {% for todo in todos %}
             <p>{{ todo.title }}</p>
+        {% empty %}
+            <p>You don't have any Todos yet.</p>
         {% endfor %}
     </div>
 </div>
