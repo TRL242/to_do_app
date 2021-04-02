@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TodoForm
 from .models import Todo
 
+
 def todos(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
