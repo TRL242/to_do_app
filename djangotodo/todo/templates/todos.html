@@ -26,7 +26,7 @@
 
     <div class="column is-12">
         {% for todo in todos %}
-            <p>{{ todo.title }} <a href="{% url 'todo' todo.id %}">View Details</a> </p>
+            <p>{{ todo.title }} {{ todo.is_done }}<a href="{% url 'todo' todo.id %}">View Details</a> </p>
         {% empty %}
             <p>You don't have any Todos yet.</p>
         {% endfor %}

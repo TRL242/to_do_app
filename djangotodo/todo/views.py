@@ -14,7 +14,7 @@ def todos(request):
     else:
         form = TodoForm()
     
-    todos = Todo.objects.all()
+    todos = Todo.objects.filter(is_done=False)
     
     return render(request, 'todos.html', {'todos': todos, 'form': form})
 
