@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import TodoForm
 from .models import Todo
@@ -17,3 +17,8 @@ def todos(request):
     todos = Todo.objects.all()
     
     return render(request, 'todos.html', {'todos': todos, 'form': form})
+
+def todo(request, pk):
+    todo = get_object_or_404(Todo, pk=pk)
+    
+    return render(request, 'todo.html', {'todo': todo})
