@@ -18,7 +18,14 @@ def todos(request):
     
     return render(request, 'todos.html', {'todos': todos, 'form': form})
 
+
 def todo(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
+
+    change_status = request.GET.get('change status', '')
+
+    if change_status:
+        todo.is_done = True
+        todo.save()
     
     return render(request, 'todo.html', {'todo': todo})
